@@ -5,6 +5,13 @@ require('dotenv').config()
 
 app.use(express.json());
 
+const logger = (req, res, next) => {
+  console.log(`Request to url ${req.url}`);
+  next()
+};
+
+app.use(logger)
+
 const users = [
   {id:1, name:"Pasha", gender: 'male', age:25},
   {id:2, name:"Jacky", gender: 'male', age:32},
