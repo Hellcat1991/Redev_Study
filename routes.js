@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { v4: uuidv4 } = require('uuid');
 require("dotenv").config();
 
 const app = express();
@@ -15,7 +16,7 @@ app.use(logger);
 
 class User {
   constructor(id, userName, email, password) {
-    this.id = id;
+    this.id = uuidv4();
     this.userName = userName;
     this.email = email;
     this.password = password;
